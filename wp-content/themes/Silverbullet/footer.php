@@ -1,0 +1,1 @@
+<script type="text/javascript" language="javascript" src="<?php bloginfo('template_directory') ?>/js/tooltip.js"></script>
