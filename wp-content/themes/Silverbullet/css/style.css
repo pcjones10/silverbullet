@@ -100,7 +100,7 @@ font-size: 14px;
 
 /*second menu*/    
 
-#nav {z-index: 10;display: block;position:absolute;top:12px;}
+#nav {z-index: 10;display: none;position:absolute;top:12px;}
 
     #nav li { float: left; }
 
@@ -180,7 +180,7 @@ li.sub{background:url(../images/menu2seperator.jpg) left 1px no-repeat;}
 
 .wrapper{width:1000px;height:auto;margin:0 auto;padding:6px;position:relative;background: #181E20;}
 
-.bannerbox{width:auto;height:306px;margin-top:35px;}
+.bannerbox{width:auto;height:306px;margin-top:-20px;}
 
 .banner_left{width:498px;height:306px;float:left;}
 
