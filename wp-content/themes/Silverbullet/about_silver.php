@@ -8,7 +8,7 @@ Template Name: About Silver Template 2
 
 
 
-get_header();
+get_header('about');
 
 
 

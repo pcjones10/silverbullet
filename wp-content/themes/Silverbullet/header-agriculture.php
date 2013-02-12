@@ -5,7 +5,7 @@
 <head>
 
 <meta charset="<?php bloginfo( 'charset' ); ?>"/>
-
+	
 <title>
 
 <?php
@@ -70,9 +70,53 @@
 
 ?>
 
+<?php
 
+if ($post->post_parent == 336 || is_page('336')) {
 
+	$navclass = "navbarsecond";
 
+} else {
+
+	$navclass = "navbar";	
+
+}
+
+?>
+
+<script>
+
+<script>
+
+// Javascript originally by Patrick Griffiths and Dan Webb.
+
+// http://htmldog.com/articles/suckerfish/dropdowns/
+
+sfHover = function() {
+
+   var sfEls = document.getElementById("navbar").getElementsByTagName("li");
+
+   for (var i=0; i<sfEls.length; i++) {
+
+      sfEls[i].onmouseover=function() {
+
+         this.className+=" hover";
+
+      }
+
+      sfEls[i].onmouseout=function() {
+
+         this.className=this.className.replace(new RegExp(" hover\\b"), "");
+
+      }
+
+   }
+
+}
+
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+
+</script> 
 
 </head>
 
@@ -146,17 +190,14 @@
 
                        <div class="secondarymenu">
 
-                        <ul id="navbar" style="width: 700px">
-
-                             <!--li><a href="<?php bloginfo('url');?>/silver-bullet/memberships">Memberships</a></li> 
-
-                             <li><a href="<?php bloginfo('url');?>/team">Management Team</a></li>
-
-                             <li><a href="<?php bloginfo('url');?>/mission">Mission</a></li>
-
-                             <li><a href="<?php bloginfo('url');?>/about">About</a></li>
-
-                             <li><strong>SILVER BULLET</strong></li-->
+                        <ul id="<?php echo $navclass; ?>" style="width: 950px">
+							<li class="page_item page-item-412"><a href="<?php bloginfo('url');?>/agricultural-services/installs-easily/">Installs Easily</a></li>
+                            <li class="page_item page-item-405"><a href="<?php bloginfo('url');?>/agricultural-services/the-silver-bullet-advantage/">The Silver Bullet Advantage</a></li>
+                            <li class="page_item page-item-383"><a href="<?php bloginfo('url');?>/agricultural-services/our-products/">Our Products</a></li>
+                            <li class="page_item page-item-393"><a href="<?php bloginfo('url');?>/agricultural-services/how-it-works/">How it works</a></li>
+                            <li class="page_item page-item-393"><a href="<?php bloginfo('url');?>/agricultural-services/news/">News</a></li>
+                            <li class="page_item page-item-393"><a href="<?php bloginfo('url');?>/agricultural-services/testimonials/">Testimonials</a></li>
+                            <li class="page_item page-item-393"><a href="<?php bloginfo('url');?>/agricultural-services/resources/">Resources</a></li>
 
                         </ul>   
 

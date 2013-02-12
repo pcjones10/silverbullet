@@ -8,7 +8,7 @@ Template Name: About Page
 
 
 
-get_header();
+get_header('about');
 
 
 

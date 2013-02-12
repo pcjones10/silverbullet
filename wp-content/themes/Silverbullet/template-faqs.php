@@ -8,7 +8,7 @@ Template Name: FAQs Page
 
 
 
-get_header('dealer');
+get_header('mediacenter');
 
 
 

@@ -8,7 +8,7 @@ Template Name: Locate a Dealer
 
 
 
-get_header('customer');
+get_header('mediacenter');
 
 
 

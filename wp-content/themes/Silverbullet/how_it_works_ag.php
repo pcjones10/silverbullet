@@ -2,13 +2,13 @@
 
 /*
 
-Template Name: Customer Page
+Template Name: How it works Customer Agriculture
 
 */
 
 
 
-get_header('bullet');
+get_header('agriculture');
 
 
 
@@ -76,53 +76,9 @@ get_header('bullet');
 
              <div class="dealerBanner left customer">
 
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();    
-
-				 $args = array(
-
-				   'post_type' => 'attachment',
-
-				   'numberposts' => -1,
-
-				   'post_status' => null,
-
-				   'post_parent' => $post->ID
-
-				  );
-
-				  $attachments = get_posts( $args );
-
-					 if ( $attachments ) {
-
-						foreach ( $attachments as $attachment ) {
-
-							$imgpostid = apply_filters( 'the_title', $attachment->post_title );
-
-							if ($imgpostid == 'Top') {
-
-							$imgurlsb = wp_get_attachment_image_src( $attachment->ID, 'Full' );
-
-							echo '<img src="'.$imgurlsb[0].'" alt="" style="float:right" height="315" width="514" />';
-
-							} else if  ($imgpostid == 'Bottom') {
-
-							$imgurlsbot = wp_get_attachment_image_src( $attachment->ID, 'Full' );
-
-							$bottomimg = '<img src="'.$imgurlsbot[0].'" alt="" height="249" width="490" />';
-
-							} else {}
-
-						  }
-
-					 }
-
-				 endwhile; endif; 
-
-				?>               
-
 			 </div>
 
-			  <div class="dealerBanner right about">
+				<div class="dealerBanner right about">
 
                 <?php 
 
@@ -134,17 +90,63 @@ get_header('bullet');
 
 				<h4><?php echo $tophdr; ?></h4>
 
-                <?php } else {} 
+                <?php } else {} ?>
 
-				$toptxt = get_post_meta($post->ID, 'Intro text', true); 
+				<?php
 
-				if (!empty($toptxt)) {
+				$field1 = get_post_meta($post->ID, '1', true); 
+
+				if (!empty($field1)) {
 
 				?>
 
-				<p><?php echo $toptxt; ?></p>
+				<div class="subBox" style="margin-left: 15px">
 
-                <?php } else {} ?>               
+					<div class='subNum'>1</div>
+
+					<div class='subText' style='color:#ffffff'><?php echo $field1; ?></div>
+
+					<div class="clearBoth"></div>
+
+				</div>
+
+                <?php } else {}
+
+				$field2 = get_post_meta($post->ID, '2', true); 
+
+				if (!empty($field2)) {
+
+				?>
+
+				<div class="subBox" style="margin-left: 15px">
+
+					<div class='subNum'>2</div>
+
+					<div class='subText' style='color:#ffffff'><?php echo $field2; ?></div>
+
+					<div class="clearBoth"></div>
+
+				</div>
+
+                <?php } else {}                 
+
+				$field3 = get_post_meta($post->ID, '3', true); 
+
+				if (!empty($field3)) {
+
+				?>
+
+				<div class="subBox" style="margin-left: 15px">
+
+					<div class='subNum'>3</div>
+
+					<div class='subText' style='color:#ffffff'><?php echo $field3; ?></div>
+
+					<div class="clearBoth"></div>
+
+				</div>
+
+                <?php } else {}  ?>                                
 
 			  </div>
 
@@ -170,61 +172,7 @@ get_header('bullet');
 
 				<h4><?php echo $midhdr; ?></h4>
 
-                <?php } else {}        
-
-				$field1 = get_post_meta($post->ID, '1', true); 
-
-				if (!empty($field1)) {
-
-				?>
-
-				<div class="subBox">
-
-					<div class='subNum'>1</div>
-
-					<div class='subText'><?php echo $field1; ?></div>
-
-					<div class="clearBoth"></div>
-
-				</div>
-
-                <?php } else {}
-
-				$field2 = get_post_meta($post->ID, '2', true); 
-
-				if (!empty($field2)) {
-
-				?>
-
-				<div class="subBox">
-
-					<div class='subNum'>2</div>
-
-					<div class='subText'><?php echo $field2; ?></div>
-
-					<div class="clearBoth"></div>
-
-				</div>
-
-                <?php } else {}                 
-
-				$field3 = get_post_meta($post->ID, '3', true); 
-
-				if (!empty($field3)) {
-
-				?>
-
-				<div class="subBox">
-
-					<div class='subNum'>3</div>
-
-					<div class='subText'><?php echo $field3; ?></div>
-
-					<div class="clearBoth"></div>
-
-				</div>
-
-                <?php } else {}                 
+                <?php } else {}                       
 
 				$field4 = get_post_meta($post->ID, '4', true); 
 
@@ -272,33 +220,31 @@ get_header('bullet');
 
 					<div class='subNum'>6</div>
 
-					<div class='subText'><?php echo $field5; ?></div>
+					<div class='subText'><?php echo $field6; ?></div>
 
 					<div class="clearBoth"></div>
 
 				</div>
 
-                <?php } else {} ?>                	
+                <?php } else {}                 
 
-			</div>
+				$field7 = get_post_meta($post->ID, '7', true); 
 
-		<div class="dealerBox right">
+				if (!empty($field7)) {
 
-				<?php 
+				?>
 
-				  if(empty($bottomimg)) {  
+				<div class="subBox">
 
-					  echo '<img src="http://www.silverbulletcorp.com/wp-content/themes/Silverbullet/images/dealerBoxRight.png" alt="" />';
+					<div class='subNum'>7</div>
 
-				  } else {
+					<div class='subText'><?php echo $field7; ?></div>
 
-					  echo $bottomimg;								
+					<div class="clearBoth"></div>
 
-				  }			
+				</div>
 
-				?>                       
-
-				
+                <?php } else {} ?> 
 
                 <div class="extracontent" style="margin-top: 15px;">
 
@@ -313,6 +259,28 @@ get_header('bullet');
                     wp_reset_query();
 
                     ?>
+
+            	</div>                                    	
+
+			</div>
+
+		<div class="dealerBox right">
+
+				<img src="<?php bloginfo('template_url'); ?>/images/dealerBoxRight.png" alt="" />
+
+                <div class="extracontent" style="margin-top: 15px;">
+
+				<?php
+
+                $field8 = get_post_meta($post->ID, 'How it works 3rd paragraph', true); 
+
+				if (!empty($field8)) {
+
+				 echo $field8; 
+
+				 } else {} 
+
+				 ?>   
 
             	</div>                 
 
@@ -334,23 +302,47 @@ get_header('bullet');
 
                <div class="newsbox">
 
-                   <div class="latestnews">
+                   		<div class="latestnews">
 
-                      <h2 class="yellow">Oct 29, 2012</h2>
+                          <h2 class="yellow">Oct 29, 2012</h2>
 
-                      <p>Silver Bullet Water Treatment LLC Receives NREL's Best Venture Award</p>
+                          <p>Silver Bullet Water Treatment LLC Receives NREL's Best Venture Award</p>
 
-                      <a href="<?php echo home_url('/media-center'); ?>">&gt; read more</a></div>
+                          <a href="<?php echo home_url('/media-center'); ?>">&gt; read more</a>
 
-                   <div class="oursystem">
+                      	</div>
 
-                      <p>The Silver Bullet system provides an innovative, commercial technology to condition cooling tower water better and faster than conventional chemical systems without the use of toxic chemicals.</p>
+ 					<?
 
-                     <a href="<?php echo home_url('/customer/our-product'); ?>">&gt; read more</a></div>
+				   	if (is_page( '383' )) {
+
+					?>
+
+                    <!--  Silver Dealer -->
+
+                       <div class="water_save">
+
+                        	<a href="<?php echo home_url('silver-bullet/customer/our-product/savings-calculator'); ?>"><img src="<?php bloginfo('template_url'); ?>/images/estimate.jpg" alt="" /></a>
+
+                       </div>   
+
+                    <!--  End Silver Dealer -->                   
+
+                    <?php } else { ?>
+
+                       <div class="oursystem">
+
+                          <p>The Silver Bullet system provides an innovative, commercial technology to condition cooling tower water better and faster than conventional chemical systems without the use of toxic chemicals.</p>
+
+                          <a href="<?php echo home_url('/customer/our-product'); ?>">&gt; read more</a>
+
+                       </div> 
+
+                    <?php } ?>
 
                       
 
-                   <div class="casestudys">
+                        <div class="casestudys">
 
 <ul style="margin:0; padding:0">
 
@@ -382,13 +374,9 @@ get_header('bullet');
 
                 ?>
 
-                </ul>
+                </ul>                         <a href="<?php echo home_url('/case-studies'); ?>">&gt; read more</a>
 
-                      <a href="<?php echo home_url('/case-studies'); ?>">&gt; read more</a>
-
-                    </div>
-
-
+                        </div>
 
                    </div>
 

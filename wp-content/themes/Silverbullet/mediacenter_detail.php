@@ -96,7 +96,9 @@ get_header('mediacenter');
 
                 <div style="font-size:14px; color:#FFF; padding:25px;">
 
-                	<h3 style="color:#F1E958; margin-bottom:15px; font-weight: normal; font-size: 32px;width: 450px"><?php the_title(); ?></h3>
+                	<h3 style="color:#F1E958; margin-bottom:15px; font-weight: normal; font-size: 32px;">
+						<?php the_title(); ?>
+                    </h3>
 
                 	<h3 style="margin-bottom:15px;"><?php the_time('F jS, Y') ?></h3>
 

@@ -26,7 +26,7 @@ Template Name: Front Page
 
 
 
-get_header('mediacenter');
+get_header();
 
 
 

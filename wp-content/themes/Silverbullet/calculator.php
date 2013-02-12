@@ -2,7 +2,7 @@
 
 /*
 
-Template Name: Calcultor Page
+Template Name: Calcultor Silver Bullet Page
 
 */
 
@@ -10,7 +10,7 @@ Template Name: Calcultor Page
 
 
 
-get_header('customer');
+get_header('bullet');
 
 ?>
 

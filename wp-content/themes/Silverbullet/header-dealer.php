@@ -162,7 +162,7 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 
                       <li><a href="<?php echo home_url('/dealer-login'); ?>">Dealer Login </a></li>
 
-                      <li><a href="<?php bloginfo('url');?>/agricultural-services">Agricultural Services</a></li>
+                      
 
                    </ul>
 
@@ -178,7 +178,7 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 
                         <ul id="uptopnav" class="dropping">
 
-                        <?php wp_list_pages('title_li=&child_of=0&sort_column=menu_order&sort_order=asc&depth=2&exclude=46,102,128,441'); ?>
+                        <?php require_once('main-nav.php'); ?>
 
                         </ul>
 
@@ -190,11 +190,11 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 
                        <div class="secondarymenu">
 
-                        <ul id="<?php echo $navclass; ?>" style="width: 700px">
+                        <ul id="<?php echo $navclass; ?>" style="width: 850px">
 
                             <?php wp_list_pages('title_li=&child_of=46&sort_column=menu_order&sort_order=desc&exclude=51'); ?>
 
-                           <li><strong style="padding: 3px 8px;">Dealer</strong></li>           
+                           <li><strong style="padding: 3px 8px;">Silver Dealer</strong></li>           
 
                         </ul>   
 

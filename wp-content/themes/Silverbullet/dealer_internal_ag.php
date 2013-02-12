@@ -2,13 +2,13 @@
 
 /*
 
-Template Name: Customer Page
+Template Name: Dealer Internal Page Agriculture
 
 */
 
 
 
-get_header('bullet');
+get_header('agriculture');
 
 
 
@@ -74,7 +74,7 @@ get_header('bullet');
 
 		  
 
-             <div class="dealerBanner left customer">
+             <div class="dealerBanner left">
 
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();    
 
@@ -118,11 +118,11 @@ get_header('bullet');
 
 				 endwhile; endif; 
 
-				?>               
+				?>                 
 
 			 </div>
 
-			  <div class="dealerBanner right about">
+				<div class="dealerBanner right about">
 
                 <?php 
 
@@ -144,7 +144,7 @@ get_header('bullet');
 
 				<p><?php echo $toptxt; ?></p>
 
-                <?php } else {} ?>               
+                <?php } else {} ?>                                  
 
 			  </div>
 
@@ -272,13 +272,31 @@ get_header('bullet');
 
 					<div class='subNum'>6</div>
 
-					<div class='subText'><?php echo $field5; ?></div>
+					<div class='subText'><?php echo $field6; ?></div>
 
 					<div class="clearBoth"></div>
 
 				</div>
 
-                <?php } else {} ?>                	
+                <?php } else {}                 
+
+				$field7 = get_post_meta($post->ID, '7', true); 
+
+				if (!empty($field7)) {
+
+				?>
+
+				<div class="subBox">
+
+					<div class='subNum'>7</div>
+
+					<div class='subText'><?php echo $field7; ?></div>
+
+					<div class="clearBoth"></div>
+
+				</div>
+
+                <?php } else {} ?>                 	
 
 			</div>
 
@@ -296,9 +314,7 @@ get_header('bullet');
 
 				  }			
 
-				?>                       
-
-				
+				?>    
 
                 <div class="extracontent" style="margin-top: 15px;">
 
@@ -334,21 +350,83 @@ get_header('bullet');
 
                <div class="newsbox">
 
-                   <div class="latestnews">
+                <!-- Latest News Box -->
 
-                      <h2 class="yellow">Oct 29, 2012</h2>
+                <div class="latestnews">
 
-                      <p>Silver Bullet Water Treatment LLC Receives NREL's Best Venture Award</p>
+				<?php
 
-                      <a href="<?php echo home_url('/media-center'); ?>">&gt; read more</a></div>
+                $customkey = 'Promo'; // Promo Key
+
+                $customvalue = '1'; // Promo Value 1
+
+                
+
+                global $wpdb;
+
+                $my_posts = $wpdb->get_results("SELECT * FROM $wpdb->posts, $wpdb->postmeta WHERE ID = $wpdb->postmeta.post_id AND meta_key = '$customkey' AND meta_value = '$customvalue' ORDER BY post_date DESC");
+
+                
+
+                foreach ($my_posts as $post) :
+
+                setup_postdata($post);
+
+
+
+  				echo ' <h2 class="yellow">';
+
+				echo mysql2date('M. j Y', the_date());
+
+				echo '</h2><p>';
+
+				echo the_title();
+
+				echo '</p>'; 
+
+                echo '<a href="';
+
+                echo the_permalink();
+
+                echo '" class="more">&gt; read more</a>';
+
+                endforeach;
+
+                ?>                  
+
+                </div>
+
+                <!-- End Latest News Box -->
 
                    <div class="oursystem">
 
                       <p>The Silver Bullet system provides an innovative, commercial technology to condition cooling tower water better and faster than conventional chemical systems without the use of toxic chemicals.</p>
 
-                     <a href="<?php echo home_url('/customer/our-product'); ?>">&gt; read more</a></div>
+                      <a href="<?php echo home_url('dealer/our-product'); ?>">&gt; read more</a>
 
-                      
+                   </div>
+
+                   <?
+
+				   	if (is_page( '336' )) {
+
+					?>
+
+                    <!--  Silver Dealer -->
+
+                    <div class="silv_dealer">
+
+                    <a href="<?php echo home_url('silver-bullet/dealer/become_dealer/'); ?>"><img src="<?php bloginfo('template_url'); ?>/images/silvbullet.jpg" alt="" /></a></div>
+
+                    </div>
+
+                    <!--  End Silver Dealer -->                   
+
+                    <?php
+
+					} else {
+
+						?>
 
                    <div class="casestudys">
 
@@ -384,13 +462,13 @@ get_header('bullet');
 
                 </ul>
 
-                      <a href="<?php echo home_url('/case-studies'); ?>">&gt; read more</a>
-
-                    </div>
-
-
+                      <a href="<?php echo home_url('/case-studies'); ?>">&gt; read more</a></div>
 
                    </div>
+
+             <?php } ?>    
+
+              <!-- Latest News Box -->     
 
                </div>
 

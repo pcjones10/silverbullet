@@ -44,7 +44,7 @@
 
                       <li><a href="<?php echo home_url('/dealer-login'); ?>">Dealer Login </a></li>
 
-                      <li><a href="<?php bloginfo('url');?>/agricultural-services">Agricultural Services</a></li>
+                      
 
                    </ul>
 

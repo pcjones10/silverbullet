@@ -8,7 +8,7 @@ Template Name: Agricultural Services
 
 
 
-get_header(); 
+get_header('agriculture'); 
 
 query_posts('p=912');
 
@@ -39,58 +39,33 @@ wp_reset_query();
 <!-- +++++++++++++++++wrapper start ++++++++++++++++ -->
 
 <div class="wrapper">
-
-         <div class="menu2">
-
-        <ul id="nav">
-
-			<li class="sub"><a href="<?php echo home_url('/customer'); ?>"  >Customer</a>
-
-				<ul style="margin-left: 5px"> 
-
-					<div class="somnath">  
-
-					<?php wp_list_pages('title_li=&child_of=102&sort_column=menu_order&sort_order=asc&depth=1'); ?>              
-
-					</div>
-
-                    <div style="float:right;width:120px;"> 
-
-					<?php wp_list_pages('title_li=&child_of=383&sort_column=menu_order&sort_order=asc'); ?>
-
-                    </div>
-
-				</ul>
-
-            </li>
-
-			<li class="sub"><a href="<?php echo home_url('/dealer'); ?>">Dealer</a>
-
-                <ul> 
-
-                    <div class="somnath">  
-
-						<?php wp_list_pages('title_li=&child_of=46&sort_column=menu_order&sort_order=asc&depth=1'); ?>
-
-                    </div>
-
-                    <div style="float:right;width:120px;">  
-
-                        <?php wp_list_pages('title_li=&child_of=336&sort_column=menu_order&sort_order=asc'); ?>
-
-                    </div>
-
-                </ul>
-
-			</li>
-
-		</ul>
-
-		 </div>
-
-          <div class="clear"></div>
-
-            <div class="innerbox"> 
+  <div class="menu2">
+    <ul id="nav">
+      <li class="sub"><a href="<?php echo home_url('/customer'); ?>"  >Customer</a>
+        <ul style="margin-left: 5px">
+          <div class="somnath">
+            <?php wp_list_pages('title_li=&child_of=102&sort_column=menu_order&sort_order=asc&depth=1'); ?>
+          </div>
+          <div style="float:right;width:120px;">
+            <?php wp_list_pages('title_li=&child_of=383&sort_column=menu_order&sort_order=asc'); ?>
+          </div>
+        </ul>
+      </li>
+      <li class="sub"><a href="<?php echo home_url('/dealer'); ?>">Dealer</a>
+        <ul>
+          <div class="somnath">
+            <?php wp_list_pages('title_li=&child_of=46&sort_column=menu_order&sort_order=asc&depth=1'); ?>
+          </div>
+          <div style="float:right;width:120px;">
+            <?php wp_list_pages('title_li=&child_of=336&sort_column=menu_order&sort_order=asc'); ?>
+          </div>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  
+<div class="innerbox"> 
 
                 <div class="banner_inner">
 
@@ -165,16 +140,62 @@ wp_reset_query();
                    <div class="clear"></div>
 
                 </div>
+<div class="waterdrops">
+  <div class="newsbox"> 
+    
+    <!-- Latest News Box -->
+    
+    <div class="agbecomedealer">
+    <a href="http://www.silverbulletcorp.com/silver-bullet/dealer/become_dealer/"><img alt="" width="245" height="245" src="http://www.silverbulletcorp.com/wp-content/themes/Silverbullet/images/silvbullet.jpg"></a>
+    </div>
+    
+    <!-- End Latest News Box -->
+    
+    <div class="agourproduct">
+      <ul style="margin:0; padding:0">
+        <?php
 
-           <div class="waterdrops">
+                $customkey = 'Promo'; // Promo Key
 
-                <div class="newsbox">
+                $customvalue = 'Ag'; // Promo Value 1
 
-                <!-- Latest News Box -->
+                
 
-                <div class="latestnews">
+                global $wpdb;
 
-				<?php
+                $my_posts = $wpdb->get_results("SELECT * FROM $wpdb->posts, $wpdb->postmeta WHERE ID = $wpdb->postmeta.post_id AND meta_key = '$customkey' AND meta_value = '$customvalue' ORDER BY post_date DESC");
+
+                
+
+                foreach ($my_posts as $post) :
+
+                setup_postdata($post);
+
+
+
+  				echo ' <h2 class="yellow">';
+
+				echo mysql2date('M. j Y', the_date());
+
+				echo '</h2><p>';
+
+				echo the_title();
+
+				echo '</p>'; 
+
+                echo '<a href="';
+
+                echo the_permalink();
+
+                echo '" class="more">&gt; read more</a>';
+
+                endforeach;
+
+                ?>  
+      </ul></div>
+    <div class="agnews">
+      <ul style="margin:0; padding:0">
+        <?php
 
                 $customkey = 'Promo'; // Promo Key
 
@@ -212,78 +233,17 @@ wp_reset_query();
 
                 endforeach;
 
-                ?>                  
-
-                </div>
-
-                <!-- End Latest News Box -->
-
-                   <div class="oursystem">
-
-                      <p>The Silver Bullet system provides an innovative, commercial technology to condition cooling tower water better and faster than conventional chemical systems without the use of toxic chemicals.</p>
-
-                      <a href="<?php echo home_url('dealer/our-product'); ?>">&gt; read more</a>
-
-                    </div>
-
-					<div class="casestudys">
-
-                     <ul style="margin:0; padding:0">
-
-				<?php
-
-                    $annouID = 7;
-
-					$pages = get_pages( array( 'child_of' => $annouID, 'sort_column' => 'post_date', 'sort_order' => 'desc', 'parent' => $annouID,'number' => 3, ) );
-
-                    $count = 0;
-
-                    foreach($pages as $page)
-
-                    {
-
-
-
-                                    echo '<li>';
-
-									echo '<a href="'; 
-
-									echo get_page_link( $page->ID );
-
-									echo '">'.$page->post_title.'</a></li>';
-
-                
-
-                    }
-
-                ?>
-
-                </ul>
-
-                      <a href="<?php echo home_url('/case-studies'); ?>">&gt; read more</a></div>
-
-                   </div>
-
-                </div>
-
-                <div class="footer">
-
-                   <div class="footermenu">
-
- <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'Fift' ) ); ?>
-
-                   </div>
-
-               </div>
-
-         
-
-    </div>               
-
-          </div>
-
-
-
+                ?>  
+      </ul></div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footermenu">
+    <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'Fift' ) ); ?>
+  </div>
+</div>
+</div>
+</div>
 <?php
 
 	/* Always have wp_footer() just before the closing </body>
@@ -299,8 +259,4 @@ get_footer();
 	wp_footer();
 
 ?>
-
-</body>
-
-</html>
-
+</body></html>

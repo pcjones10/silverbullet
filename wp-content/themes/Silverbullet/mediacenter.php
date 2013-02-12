@@ -177,12 +177,16 @@ get_header('mediacenter');
 
 
                                     echo '<li><span class="somu" style="width:168px">';
+									
+									
 
                                     echo mysql2date('M. j Y', $page->post_date);
 
                                     echo '</span><a href="'.get_page_link( $page->ID ).'">';
 
                                     echo $page->post_title;
+									
+									echo get_media_icons($page->ID);
 
 									echo '</a></li>'; 
 
@@ -224,7 +228,7 @@ get_header('mediacenter');
 
                      	$nwssource = get_post_meta($page->ID, 'News Source', true); 
 
-						echo '<li><span class="somu">'.mysql2date('M. j Y', $page->post_date).'</span><span class="newsource">'.$nwssource.'</span><a href="'.get_page_link( $page->ID ).'">'.$page->post_title.'</a></li>';                
+						echo '<li><span class="somu">'.mysql2date('M. j Y', $page->post_date).'</span><span class="newsource">'.$nwssource.'</span><a href="'.get_page_link( $page->ID ).'">'.$page->post_title.get_media_icons($page->ID).'</a></li>';                
 
                     }
 
@@ -263,9 +267,12 @@ get_header('mediacenter');
                                     echo mysql2date('M. j Y', $page->post_date);
 
                                     echo '</span><a href="'.get_page_link( $page->ID ).'">';
-
+									
+									
                                     echo $page->post_title;
-
+									
+									echo get_media_icons($page->ID);
+									
 									echo '</a></li>';
 
                 

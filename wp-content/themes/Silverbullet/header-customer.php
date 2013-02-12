@@ -130,7 +130,7 @@ if ($post->post_parent == 383 || is_page('383')) {
 
                       <li><a href="<?php echo home_url('/dealer-login'); ?>">Dealer Login </a></li>
 
-                      <li><a href="<?php bloginfo('url');?>/agricultural-services">Agricultural Services</a></li>
+                      
 
                    </ul>
 
@@ -146,7 +146,7 @@ if ($post->post_parent == 383 || is_page('383')) {
 
                         <ul id="uptopnav" class="dropping">
 
-                        <?php wp_list_pages('title_li=&child_of=0&sort_column=menu_order&sort_order=asc&depth=2&exclude=46,102,128,441'); ?>
+                        <?php require_once('main-nav.php'); ?>
 
                         </ul>
 
@@ -162,7 +162,7 @@ if ($post->post_parent == 383 || is_page('383')) {
 
                             <?php wp_list_pages('title_li=&child_of=102&sort_column=menu_order&sort_order=desc'); ?>
 
-                           <li><strong style="padding: 3px 8px;">Customer</strong></li>           
+                           <!--li><strong style="padding: 3px 8px;">Customer</strong></li-->           
 
                         </ul>   
 

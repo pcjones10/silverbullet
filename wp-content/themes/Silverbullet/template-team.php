@@ -8,7 +8,7 @@ Template Name: Team Page
 
 
 
-get_header();
+get_header('about');
 
 
 
@@ -124,7 +124,12 @@ get_header();
 
 				<!-- SECTION STARTS HERE -->
 
-                <?php $j = 1; ?>    
+                <?php 
+					$j = 1; 
+					// Get images for this post
+					$arrImages = get_children('post_type=attachment&post_mime_type=image&post_parent=' . $post->ID );
+					//print_r($arrImages);
+				?>    
 
 				<?php query_posts('cat=16&showposts=-1&orderby=date&order=asc'); ?>
 
@@ -162,8 +167,14 @@ get_header();
 
                 <div class="hiddenBox">
 
-    				<?php the_content(); ?>
-
+    				<div class="team-text"><?php the_content(); ?></div>
+                    <?php
+						$imgURLobj = array_shift($arrImages);
+						$imgURL = $imgURLobj->guid;
+						$imgAlt = $imgURLobj->post_title;
+					?>
+                    	<img src="<?php echo $imgURL;?>" class="team-photo" alt="<?php echo $imgAlt ?>" title="<?php echo $imgAlt ?>"/>
+                        <div style="clear:both;"></div>
                 </div>                
 
 				<?php 
@@ -182,6 +193,130 @@ get_header();
 
 	</div>
 
+<div class="clear"></div>
+
+          <div class="dealerBannerCont">
+
+		  
+
+             <div class="dealerBanner left about">
+
+			 </div>
+
+			  <div class="dealerBanner right about">
+
+                <?php 
+
+				$tophdr = get_post_meta($post->ID, 'Management Top Header', true); 
+
+				if (!empty($tophdr)) {
+
+				?>
+
+				<h4><?php echo $tophdr; ?></h4>
+
+                <?php } else {} 
+
+				$toptxt = get_post_meta($post->ID, 'Management Intro text', true); 
+
+				if (!empty($toptxt)) {
+
+				?>
+
+				<p><?php echo $toptxt; ?></p>
+
+                <?php } else {} ?>    
+
+			  </div>
+
+			  <div class="clearBoth"></div>
+
+             
+
+          </div>
+
+		  
+
+	<div class="casecontent"  >
+
+		<div class="dealerBox wide">
+
+				
+
+
+
+
+
+				<!-- SECTION STARTS HERE -->
+
+                <?php 
+					$j = 1; 
+					// Get images for this post
+					$arrImages = get_children('post_type=attachment&post_mime_type=image&post_parent=' . $post->ID );
+					//print_r($arrImages);
+				?>    
+
+				<?php query_posts('cat=17&showposts=-1&orderby=date&order=asc'); ?>
+
+                <?php while (have_posts()) : the_post(); ?> 
+
+				<script type="text/javascript">
+
+                    $(document).ready(function() {
+
+                        $(".message<?php echo $post->ID; ?>").hide();
+
+                        $("span.readmore<?php echo $post->ID; ?>").click(function(){
+
+                            $(".message<?php echo $post->ID; ?>").show("slow");
+
+                            $(this).hide();
+
+                        });
+
+                    });
+
+                </script>                  
+
+				<div class="subBox">
+
+					<div class='subNum'><?php echo $j++; ?></div><!-- VISIBLE STARTS HERE -->
+
+					<div class='subText'><?php the_title(); ?></div>
+
+					<div class='subPlus'></div><!-- VISIBLE ENDS HERE -->
+
+					<div class="clearBoth"></div>
+
+				</div><!-- HIDDEN TEXT STARTS HERE -->
+
+                <div class="hiddenBox">
+
+    				<div class="team-text"><?php the_content(); ?></div>
+                    <?php
+						$imgURLobj = array_shift($arrImages);
+						$imgURL = $imgURLobj->guid;
+						$imgAlt = $imgURLobj->post_title;
+					?>
+                    	<img src="<?php echo $imgURL;?>" class="team-photo" alt="<?php echo $imgAlt ?>" title="<?php echo $imgAlt ?>"/>
+                        <div style="clear:both;"></div>
+                </div>                
+
+				<?php 
+
+                endwhile; 
+
+                wp_reset_query();
+
+                ?>  
+
+                <!-- SECTION ENDS HERE -->
+
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
 	
 
 	

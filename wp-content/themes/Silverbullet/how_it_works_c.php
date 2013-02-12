@@ -8,7 +8,7 @@ Template Name: How it works Customer
 
 
 
-get_header('customer');
+get_header('bullet');
 
 
 

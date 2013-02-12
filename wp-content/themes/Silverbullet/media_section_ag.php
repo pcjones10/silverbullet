@@ -2,13 +2,13 @@
 
 /*
 
-Template Name: Individual Media Sections
+Template Name: Individual Media Sections Agriculture
 
 */
 
 
 
-get_header('mediacenter');
+get_header('agriculture');
 
 ?>
 

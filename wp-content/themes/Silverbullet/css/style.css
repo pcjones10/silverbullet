@@ -30,7 +30,20 @@ font-size: 14px;
 
 }
 
+.team-text{
+	float:left;
+	width:450px;
+}
+.team-photo{
+	margin-left: 10px
+}
 
+.sm-media-icon{
+	width:20px;
+}
+.media-icons{
+	float:right;
+}
 
 .header{width:100%;height:126px;padding:4px 0 10px 0;background:#fff;}
 
@@ -42,13 +55,13 @@ font-size: 14px;
 
 .logobox a{width:177px;height:124px;background:url(../images/logo.png) no-repeat;display:block;}
 
-.menubox{width:790px;height:auto;float:right;padding-top:4px;position:relative;}
+.menubox{width:800px;height:auto;float:right;padding-top:4px;position:relative;}
 
 .minimenu{width:auto;height:auto;display:inline-block;float:right}
 
 .minimenu ul{display:inline-block;width:auto;height:auto;text-align:right}
 
-.minimenu ul li{padding:0 7px; background:url(../images/miniseperator.png) right 0px no-repeat;font:normal 9px arial;display:inline}
+.minimenu ul li{padding:0 7px; background:url(../images/miniseperator.png) right 0px no-repeat;font:normal 14px arial;display:inline}
 
 .minimenu ul li a{color:#525E63;text-decoration:none;}
 
@@ -199,6 +212,35 @@ li.sub{background:url(../images/menu2seperator.jpg) left 1px no-repeat;}
 
 
 .newsbox{width:918px;height:245px;margin:0 auto; background:#006a89; color:#b9d2d8;}
+
+
+
+.agbecomedealer{background: url("../images/sticker_ag.jpg") no-repeat scroll left top transparent;
+    float: left;
+    height: 245px;
+    margin: 0 auto;
+    width: 300px;
+	overflow: hidden;}
+
+.agbecomedealer h2{font:normal 20px arial;color:#F1E975;padding-bottom:4px;}
+
+.agbecomedealer p{font:normal 18px/24px arial; color:#B9D2D8;}
+
+
+
+.agourproduct{width:220px;height:187px;margin:0 auto; background:url("../images/sticker_ag.jpg") no-repeat scroll 0 -266px transparent;float:left;padding:58px 16px 0 70px;}
+
+.agourproduct h2{font:normal 20px arial;color:#F1E975;padding-bottom:4px;}
+
+.agourproduct p{font:normal 18px/24px arial; color:#B9D2D8;}
+
+
+
+.agnews{width:220px;height:187px;margin:0 auto; background:url("../images/sticker_ag.jpg") no-repeat scroll 0 -536px transparent;float:left;padding:58px 16px 0 70px;}
+
+.agnews h2{font:normal 20px arial;color:#F1E975;padding-bottom:4px;}
+
+.agnews p{font:normal 18px/24px arial; color:#B9D2D8;}
 
 
 
@@ -1008,9 +1050,9 @@ div.wide div.hiddenBox div{ color: #ACB2B2;font-size: 14px;}
 
 .searchposts p a{color: #F1E973; }
 
-#navbar { position: relative; top: 0; right: 0; margin: 0; padding: 0;z-index: 10;}
+#navbar { position: relative; top: 0px; right: 0; margin: 0; padding: 0;z-index: 10;}
 
-#navbar li { padding:0 10px; background:url(../images/secondarymenu_seperator.jpg) right 2px no-repeat;font:normal 12px arial;list-style: none; float: right }
+#navbar li { padding:0 0px; background:url(../images/secondarymenu_seperator.jpg) right 2px no-repeat;font:normal 12px arial;list-style: none; float: right }
 
 #navbar li a { display: block; padding: 0px 8px; text-decoration: none;font-weight: bold;color:#0085c9 ;text-decoration:none; }
 
@@ -1030,7 +1072,7 @@ div.wide div.hiddenBox div{ color: #ACB2B2;font-size: 14px;}
 
 #navbarsecond { position: relative; top: 0; right: 0; margin: 0; padding: 0;z-index: 10;}
 
-#navbarsecond li { padding:0 10px; background:url(../images/secondarymenu_seperator.jpg) right 2px no-repeat;font:normal 12px arial;list-style: none; float: right }
+#navbarsecond li { padding:0 0px; background:url(../images/secondarymenu_seperator.jpg) right 2px no-repeat;font:normal 12px arial;list-style: none; float: right }
 
 #navbarsecond li a { display: block; padding: 0px 8px; text-decoration: none;font-weight: bold;color:#0085c9 ;text-decoration:none; }
 
@@ -1089,5 +1131,29 @@ ul.dropping ul li {border-right:none}
 h4 ul {margin-left: 10px; padding-left:10px; margin-top: 20px}
 
 h4 ul li{list-style-type: disc; padding: 10px 0px}
-
+#ag-promo-wrapper{
+	margin:0 auto;
+}
+.ag-promo{
+	width:333px;
+	float:left;
+	height:300px;
+}
+.ag-promo h2{
+	text-align:center;
+	color:#F1E972;
+	padding-top:5px;
+}
+#ag-promo-dealer{
+	background:url(http://www.agrifoodforum.com/images/agriculture.jpg) 0px 30px no-repeat;
+	background-size:auto 300px;
+}
+#ag-promo-product{
+	background:url(http://www.jumpthecurve.net/wp-content/uploads/2012/09/agriculture.jpg) -50px 30px no-repeat;
+	background-size:auto 300px;
+}
+#ag-promo-news{
+	background:url(http://www.countryfarm-lifestyles.com/images/agriculture-news.jpg) 0px 30px no-repeat;
+	background-size:auto 300px;
+}
 /* end extra */

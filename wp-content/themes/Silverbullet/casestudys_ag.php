@@ -2,13 +2,13 @@
 
 /*
 
-Template Name: Individual Media Sections
+Template Name: Case Study Agriculture Page
 
 */
 
 
 
-get_header('mediacenter');
+get_header('agriculture');
 
 ?>
 
@@ -16,11 +16,11 @@ get_header('mediacenter');
 
 <div class="wrapper">
 
-          <div class="menu2">
+        <div class="menu2">
 
         <ul id="nav">
 
-			<li class="sub"><a href="<?php echo home_url('/customer'); ?>"  >Customer</a>
+			<li class="sub"><a href="<?php echo home_url('/customer'); ?>">Customer</a>
 
 				<ul style="margin-left: 5px"> 
 
@@ -62,19 +62,29 @@ get_header('mediacenter');
 
 		</ul>
 
-		  </div>
+		</div>
+
+          <div class="clear"></div>
 
             <div class="innerbox"> 
 
                 <div class="banner_inner">
 
-                <div class="banner_left_inner mediacenter"><img src="<?php bloginfo('template_url'); ?>/images/inbanner.jpg" alt="" /></div>
+                <div class="banner_left_inner casestudy"><img src="<?php bloginfo('template_url'); ?>/images/case.jpg" alt="" /></div>
 
                 <div class="banner_right_inner">
 
-				<h1>Media Center</h1>
-
                 <?php 
+
+				$tophdr = get_post_meta($post->ID, 'Top Header', true); 
+
+				if (!empty($tophdr)) {
+
+				?>
+
+				<h1 style="padding-top:50px;"><?php echo $tophdr; ?></h1>
+
+                <?php } else {} 
 
 				$toptxt = get_post_meta($post->ID, 'Intro text', true); 
 
@@ -84,7 +94,7 @@ get_header('mediacenter');
 
 				<p><?php echo $toptxt; ?></p>
 
-                <?php } else {} ?>  
+                <?php } else {} ?>                  
 
                 </div>
 
@@ -92,53 +102,145 @@ get_header('mediacenter');
 
                 </div>
 
-                <div style="font-size:14px; float:right; width:100%; text-align:right; color:#FFF; padding:25px;">
+                <div class="casecontent"  >
 
-                	<a href="<?php echo home_url('/media-center'); ?>" style="color:#F1E958; text-decoration:none; font-size:16px;">Back to Media Center</a>
+                	<div class="leftpiccase">
+
+					<?php
+
+                        $pages = get_pages( array( 'child_of' => 7, 'sort_column' => 'post_date', 'sort_order' => 'asc', 'parent' => 7,'number' => 10, ) );
+
+                        $count = 0;
+
+                        foreach($pages as $page)
+
+                        {
+
+    
+
+                                        echo '<div class="caseimgbox">';
+
+                                        echo '<h4>';
+
+                                        echo $page->post_title;
+
+                                        echo '</h4>';
+
+                                        echo '<a href="'; 
+
+                                        echo get_page_link( $page->ID );
+
+                                        echo '">';
+
+                                         $args = array(
+
+                                           'post_type' => 'attachment',
+
+                                           'numberposts' => 1,
+
+                                           'post_status' => null,
+
+                                           'post_parent' => $page->ID
+
+                                          );
+
+                                          $attachments = get_posts( $args );
+
+                                             if ( $attachments ) {
+
+                                                foreach ( $attachments as $attachment ) {
+
+                                                   $imgurlsb = wp_get_attachment_image_src( $attachment->ID, 'Full' );
+
+                                                       echo '<img src="'.$imgurlsb[0].'" width="385" height="213" border="0" />';
+
+                                                  }
+
+                                             }
+
+                                        echo '</a>';
+
+										echo '</div>';
+
+                        }
+
+                    ?>                     
+
+               		</div>
+
+                    <div class="clear"></div>
 
                 </div>
 
-                <div class="singpress">
-
-                <h2><?php echo get_the_title(); ?></h2>
-
-                <ul>
-
-				<?php
-
-                    
-
-					$pages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'post_date', 'sort_order' => 'desc', 'parent' => $post->ID,'number' => 150, ) );
-
-                    $count = 0;
-
-                    foreach($pages as $page)
-
-                    {
-
-
-
-                                    echo '<li><span class="somu" style="width:168px">';
-
-                                    echo mysql2date('M. j Y', $page->post_date);
-
-                                    echo '</span><a href="'.get_page_link( $page->ID ).'">';
-
-                                    echo $page->post_title;
-									
-									echo get_media_icons($page->ID);
-
-									echo '</a></li>'; 
-
                 
 
-                    }
+                <div class="testmonibox">
 
-                ?>                
+                   <div class="testimonialcontent"><a name="testimonials"></a>
 
-                </ul>
+                      <h1>See what they say...</h1>
 
-                </div>                
+                      <ul>
+
+					<?php
+
+                        $pages = get_pages( array( 'child_of' => 437, 'sort_column' => 'post_date', 'sort_order' => 'asc', 'parent' => 437,'number' => 10, ) );
+
+                        $count = 0;
+
+                        foreach($pages as $page)
+
+                        {
+
+    
+
+                                        echo '<li>';
+
+                                        echo '<div class="skyleft">';
+
+                                        echo $page->post_title;
+
+                                        echo '</div>';
+
+										echo '<div class="dcon">';
+
+                                        echo '<a href="'; 
+
+                                        echo get_page_link( $page->ID );
+
+                                        echo '">';
+
+										echo get_post_meta($page->ID, 'Intro text', true);
+
+                                        echo '</a>';
+
+										echo '</div>';
+
+										echo '<div class="clear"></div>';
+
+										echo '</li>';
+
+                        }
+
+                    ?>                       
+
+                      </ul>
+
+                   </div>
+
+                    <div class="testivideo">
+
+                        <div style="height: 210px; width: 274px; background-color: #000000"><?php $postid = $wp_query->post->ID; echo get_post_meta($postid, 'Youtube Video', true); ?></div>
+
+                        <p><?php $postid = $wp_query->post->ID; echo get_post_meta($postid, 'Video Caption', true); ?></p>
+
+                    </div>
+
+                   
+
+                   <div class="clear"></div>
+
+                </div>
 
                 <div class="waterdrops">
 
@@ -212,6 +314,10 @@ get_header('mediacenter');
 
                 </div>
 
+          </div>
+
+    
+
                <div class="watercalcu">
 
                   <ul>
@@ -224,7 +330,9 @@ get_header('mediacenter');
 
                   </ul>
 
-               </div>				<script type="text/javascript">
+               </div>
+
+				<script type="text/javascript">
 
                 var start = new Date(2011, 0, 1);
 
@@ -264,25 +372,11 @@ get_header('mediacenter');
 
                    </div>
 
-               </div>                
-
-          </div>
-
-    
-
-    
-
-
-
-
-
-
-
-
+               </div>
 
  </div>
 
- <?php
+<?php
 
 	/* Always have wp_footer() just before the closing </body>
 

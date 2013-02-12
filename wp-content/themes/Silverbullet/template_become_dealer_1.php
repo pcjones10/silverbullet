@@ -8,7 +8,7 @@ Template Name: Become Dealer Page
 
 
 
-get_header('contact');
+get_header('dealer');
 
 ?>
 

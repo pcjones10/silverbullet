@@ -8,7 +8,7 @@ Template Name: Memberships
 
 
 
-get_header('dealer');
+get_header('about');
 
 
 

@@ -70,9 +70,53 @@
 
 ?>
 
+<?php
 
+if ($post->post_parent == 336 || is_page('336')) {
 
+	$navclass = "navbarsecond";
 
+} else {
+
+	$navclass = "navbar";	
+
+}
+
+?>
+
+<script>
+
+<script>
+
+// Javascript originally by Patrick Griffiths and Dan Webb.
+
+// http://htmldog.com/articles/suckerfish/dropdowns/
+
+sfHover = function() {
+
+   var sfEls = document.getElementById("navbar").getElementsByTagName("li");
+
+   for (var i=0; i<sfEls.length; i++) {
+
+      sfEls[i].onmouseover=function() {
+
+         this.className+=" hover";
+
+      }
+
+      sfEls[i].onmouseout=function() {
+
+         this.className=this.className.replace(new RegExp(" hover\\b"), "");
+
+      }
+
+   }
+
+}
+
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+
+</script> 
 
 </head>
 
@@ -146,17 +190,11 @@
 
                        <div class="secondarymenu">
 
-                        <ul id="navbar" style="width: 700px">
+                        <ul id="<?php echo $navclass; ?>" style="width: 830px">
 
-                             <!--li><a href="<?php bloginfo('url');?>/silver-bullet/memberships">Memberships</a></li> 
+                            <?php wp_list_pages('title_li=&child_of=5&sort_column=menu_order&sort_order=desc'); ?>
 
-                             <li><a href="<?php bloginfo('url');?>/team">Management Team</a></li>
-
-                             <li><a href="<?php bloginfo('url');?>/mission">Mission</a></li>
-
-                             <li><a href="<?php bloginfo('url');?>/about">About</a></li>
-
-                             <li><strong>SILVER BULLET</strong></li-->
+                           <li><strong style="padding: 3px 8px;">Silver Bullet</strong></li>           
 
                         </ul>   
 
